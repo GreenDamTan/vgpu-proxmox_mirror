@@ -13,6 +13,8 @@ The following consumer/not-vGPU-qualified NVIDIA GPUs can be used with vGPU:
 - All GPUs from the Pascal generation (GTX 10xx, Quadro Pxxxx, Tesla Pxx)
 - All GPUs from the Turing generation (GTX 16xx, RTX 20xx, Txxxx)
 
+_Note:_ There is not a strict list for supported consumer cards, however you could check out the [Successful setups channel at Discord](https://discord.com/channels/829786927829745685/831950788733042699). 
+
 Starting from driver version 17.0, Pascal and earlier require additional patches, see [below](#psa-for-pascal-and-older-gpus-like-the-p4-gtx-1080) for more!
 
 If you have GPUs from the Ampere and Ada Lovelace generation, you are out of luck, unless you have a vGPU qualified card from [this list](https://docs.nvidia.com/grid/gpus-supported-by-vgpu.html) like the A5000 or RTX 6000 Ada. If you have one of those cards, please consult the [NVIDIA documentation](https://docs.nvidia.com/grid/15.0/grid-vgpu-user-guide/index.html) for help with setting it up.
