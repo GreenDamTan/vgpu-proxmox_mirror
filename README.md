@@ -4,7 +4,7 @@
 
 This document serves as a guide to install NVIDIA vGPU host drivers on the latest Proxmox VE version, at time of writing this its pve 8.3.
 
-You can follow this guide if you have a vGPU supported card from [this list](https://docs.nvidia.com/grid/gpus-supported-by-vgpu.html), or if you are using a consumer GPU from the GeForce series or a non-vGPU qualified Quadro GPU. There are several sections with a title similar to "Have a vGPU supported GPU? Read here" in this document, make sure to read those very carefully as this is where the instructions differ for a vGPU qualified card and a consumer card.
+You can follow this guide if you have a vGPU supported card from [this list](https://docs.nvidia.com/grid/gpus-supported-by-vgpu.html), or if you are using a consumer GPU from the GeForce series or a non-vGPU qualified Quadro GPU. There are several sections with a title similar to "Have a vgpu supported card? Read here"" in this document, make sure to read those very carefully as this is where the instructions differ for a vGPU qualified card and a consumer card.
 
 ## Supported cards
 
