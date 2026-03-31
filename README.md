@@ -625,6 +625,15 @@ Usually a license is required to use vGPU, but luckily the community found sever
 
 The recommended way to get around the license is to set up your own license server. Follow the instructions [here](https://git.collinwebdesigns.de/oscar.krause/fastapi-dls) (or [here](https://gitea.publichub.eu/oscar.krause/fastapi-dls) if the other link is down).
 
+### After vGPU 18.x release use nvlts instead of fastapi-dls
+Coia's work  
+
+```
+NVIDIA vGPU Software required a License for unlock all functions.
+After vGPU 18.x release, it verifies that NLS (NVIDIA License System, include Cloud License Service "CLS" and Delegated License Service "DLS") service instance certificate is issued by NVIDIA (NLS ROOT CA)
+```   
+
+more information in https://git.collinwebdesigns.de/vgpu/nvlts
 ## PSA for Pascal (and older) GPUs like the P4, GTX 1080...
 
 Starting from driver version 17.0, nvidia in their infinite wisdom dropped support for older cards, so now no matter if the card used to be supported (Tesla P4 etc) or not, you have to patch the driver.
