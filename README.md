@@ -365,6 +365,43 @@ Self-extractible archive "NVIDIA-Linux-x86_64-550.144.02-vgpu-kvm-custom.run" su
 
 You should now have a file called `NVIDIA-Linux-x86_64-550.144.02-vgpu-kvm-custom.run`, that is your patched driver.
 
+#### error about `/usr/bin/patch: **** patch line 9 contains NUL byte`
+If you meet the following error, it means the patch package version is too high.  
+you should need to try downgrading it to 2.7.6  
+```text
+root@pve:/mnt/nvme0n1p5/vgpu/20.0# ./NVIDIA-Linux-x86_64-595.58.02-vgpu-kvm.run  --apply-patch 595.58.02.patch 
+Verifying archive integrity... OK
+Uncompressing NVIDIA Accelerated Graphics Driver for Linux-x86_64 595.58.02...........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+/usr/bin/patch: **** patch line 9 contains NUL byte
+Failed to apply patch file "/mnt/nvme0n1p5/vgpu/20.0/595.58.02.patch".
+```
+
+that package can be find in `https://mirrors.ustc.edu.cn/debian/pool/main/p/patch/`  
+download it and install with command like `dpkg -i patch_2.7.6-7_amd64.deb`
+
+```text
+root@pve:/mnt/nvme0n1p5/vgpu/20.0# wget https://mirrors.ustc.edu.cn/debian/pool/main/p/patch/patch_2.7.6-7_amd64.deb
+--2026-03-31 22:31:57--  https://mirrors.ustc.edu.cn/debian/pool/main/p/patch/patch_2.7.6-7_amd64.deb
+Resolving mirrors.ustc.edu.cn (mirrors.ustc.edu.cn)... 202.141.176.110, 2001:da8:d800:95::110
+Connecting to mirrors.ustc.edu.cn (mirrors.ustc.edu.cn)|202.141.176.110|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 127848 (125K) [application/octet-stream]
+Saving to: ‘patch_2.7.6-7_amd64.deb’
+
+patch_2.7.6-7_amd64.deb                                    100%[=====================================================================================================================================>] 124.85K  --.-KB/s    in 0.07s   
+
+2026-03-31 22:31:58 (1.63 MB/s) - ‘patch_2.7.6-7_amd64.deb’ saved [127848/127848]
+
+root@pve:/mnt/nvme0n1p5/vgpu/20.0# dpkg -i patch_2.7.6-7_amd64.deb 
+dpkg: warning: downgrading patch (2.8-2) to (2.7.6-7)
+(Reading database ... 157139 files and directories currently installed.)
+Preparing to unpack patch_2.7.6-7_amd64.deb ...
+Unpacking patch (2.7.6-7) over (2.8-2) ...
+Setting up patch (2.7.6-7) ...
+Processing triggers for man-db (2.13.1-1) ...
+```
+
+
 ### Installing the driver
 
 Now that the required patch is applied, you can install the driver
